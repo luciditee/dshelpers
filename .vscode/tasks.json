@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "shell",
+        "label": "gcc compile src folder",
+        "command": "gcc",
+        "args": ["-Wall", "-Wno-implicit-fallthrough", "-Wno-unknown-pragmas", "-Wno-unused-parameter", "-Wextra", "-Wconversion", "-pedantic", "-std=c89", 
+          "-g", "-O0", "src/*.c", "-I", "src/header", "-o", "dshelper"],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "panel": "shared", 
+          "reveal": "always",
+          "focus": true
+      },
+      }
+    ]
+  }
