@@ -1,0 +1,4 @@
+./dshelper
+*.exe
+*.bin
+*.out
