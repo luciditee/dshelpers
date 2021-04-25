@@ -62,6 +62,17 @@
 
 typedef uint8_t hash_t;
 
+struct hashtable_entry {
+    const char* key;
+    void* data;
+    hashtable_entry_t* next;
+    hashtable_entry_t* prev;
+};
+
+struct hashtable {
+    hashtable_entry_t*** buckets;
+};
+
 /* Non-public-facing part of the hashtable API.
    Zeros all data found in the given hashtable entry. */
 void zero_entry(hashtable_entry_t* entry) {
