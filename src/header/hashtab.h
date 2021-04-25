@@ -12,17 +12,7 @@
 #include <stdint.h>
 
 typedef struct hashtable_entry hashtable_entry_t;
-
-struct hashtable_entry {
-    const char* key;
-    void* data;
-    hashtable_entry_t* next;
-    hashtable_entry_t* prev;
-};
-
-typedef struct hashtable {
-    hashtable_entry_t*** buckets;
-} hashtable_t;
+typedef struct hashtable hashtable_t;
 
 hashtable_t* create_hashtable();
 void delete_hashtable(hashtable_t* hashtable);
