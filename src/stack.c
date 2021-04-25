@@ -2,10 +2,51 @@
 /** WARNING: Untested. Don't use this code yet until I go through it. */
 
 /**
- * queue.c - Code definitions for a queue data structure.
+ * stack.c - Code definitions for a stack data structure.
  * 
  * Licensed per the terms found in the LICENSE file at the root of this
  * code repository.
+ * 
+ */
+
+/**
+ * STACK
+ * A stack is a FILO (first in, last out) data structure in which elements
+ * are appended, and when un-appended, the most recently added element is
+ * removed, similar to a stack of papers on a desk--placing new papers on
+ * top means that the next paper you grab will always be the most recently
+ * added paper in the stack of papers.
+ * 
+ * The act of putting something on the stack is called 'pushing', and the
+ * removal is called 'popping'.
+ * 
+ * The stack implemented here uses a helper data structure that also allows
+ * us to summon the *size* of the stack at any one time, as well as a stack
+ * element structure that contains a pointer to the previous element.
+ * 
+ * A typical use case for a stack would be an *undo* feature. Combining this
+ * stack with a queue structure would facilitate an accompanying *redo*
+ * feature.
+ * 
+ * TIME COMPLEXITY
+ * All aspects of this stack implementation are O(1), unless the host
+ * systems malloc/free implementations are anything worse than O(1).
+ * 
+ * SPACE CONSIDERATIONS
+ * Note that this particular implementation of a stack may be prone to
+ * heap fragmentation on the host system. While the stack structure will
+ * only ever occupy 2 pointers worth (16 bytes on a 64-bit system) of
+ * space--same for the elements--the malloc() and free() calls used to
+ * set up the space
+ * 
+ * A stack implementation that uses a resizable array--an approach called
+ * an "implicit data structure"--can be seen in impstack.c instead. Gen-
+ * erally speaking, the system will just re-use previously allocated stack
+ * structures (i.e., if you free a 16-byte block, and later allocate one,
+ * most systems are smart enough to know they can just reuse the previously
+ * freed block). However, depending on the host system, its use of paging,
+ * and pre-existing RAM usage that may lead to swapping/disk thrashing, this
+ * may still present an issue.
  * 
  */
 
