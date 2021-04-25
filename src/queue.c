@@ -26,6 +26,16 @@
  * very, very slightly higher memory usage (on the order of a few bytes
  * extra per element, aka 2 to 3 pointers vs 1 pointer).
  * 
+ * SPACE CONSIDERATIONS
+ * As with the Stack implementation, it is possible to encounter heap
+ * fragmentation with this approach on some systems. This isn't typical
+ * on the vast majority of systems, and in fact may be better with a fre-
+ * quently accessed structure due to CPU caching (i.e., stack and queue
+ * elements in these implementations are small enough to fit into L1 cache.)
+ * 
+ * Nevertheless, if fragmentation is an issue, an implicit-structure version
+ * of the queue, backed by an array, can be found in impqueue.c.
+ * 
  */
 
 #include <stdlib.h>
