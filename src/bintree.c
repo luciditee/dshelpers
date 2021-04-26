@@ -33,11 +33,12 @@ size_t bintree_count_nodes(bintree_node_t* start) {
 
 /* "Invert" (reverse/flip) a binary tree */
 void bintree_invert(bintree_node_t* start) {
+    bintree_node_t* temp;
     if (start == NULL) return;
     
-    bintree_node_t* temp = start->left;
+    temp = start->left;
     start->left = start->right;
-    start->right = start->left;
+    start->right = temp;
     
     if (start->left != NULL)
         bintree_invert(start->left);
@@ -57,10 +58,10 @@ int abs(int i) {
 }
 
 int bintree_get_height(bintree_node_t* n) {
-    if (n == NULL)
-        return 0;
-    int l = bintree_get_height(n->left);
-    int r = bintree_get_height(n->right);
+    int l, r;
+    if (n == NULL) return 0;
+    l = bintree_get_height(n->left);
+    r = bintree_get_height(n->right);
     return MAX(l,r) + 1;
 }
 
@@ -71,4 +72,5 @@ bool bintree_is_hbalanced(bintree_node_t* n) {
         && bintree_is_hbalanced(n->left)
         && bintree_is_hbalanced(n->right);
 }
+
 
