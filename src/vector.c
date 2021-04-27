@@ -129,13 +129,13 @@ bool vector_contains_string(vector_t* vector, void** data, size_t length) {
             if (vector->array[i] == data[0]) {
                 found = true;
                 j = i;
-                k = i;
+                k = i + length;
             }
         } else {
             if (vector->array[i] != data[j])
                 return false;
             
-            if (++j >= k + length)
+            if (++j >= k)
                 return true;
         }
     }
