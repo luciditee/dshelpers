@@ -47,7 +47,7 @@ void vector_truncate(vector_t* vector, size_t length);
 int vector_indexof(vector_t* vector, void* data);
 
 /* Does this vector contain the specified pointer? */
-bool vector_contains(vector_t* vector, void** data);
+bool vector_contains(vector_t* vector, void* data);
 
 /* Does this vector contain the specified sequence? */
 bool vector_contains_string(vector_t* vector, void** data, size_t length);
