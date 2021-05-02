@@ -117,7 +117,7 @@ int vector_indexof(vector_t* vector, void* data) {
     return -1;
 }
 
-bool vector_contains(vector_t* vector, void** data) {
+bool vector_contains(vector_t* vector, void* data) {
     return vector_indexof(vector, data) != -1;
 }
 
